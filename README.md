@@ -4,20 +4,20 @@
 
 - gin
 
-```go get -u github.com/gin-gonic/gin
-
-- migrate tool
+```bash
+go get -u github.com/gin-gonic/gin
 
 ```
 
-go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+- migrate tool
 
+```bash
+go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 ```
 
 - air
 
-```
-
+```bash
 go install github.com/air-verse/air@latest
 
 ```
@@ -28,13 +28,13 @@ go install github.com/air-verse/air@latest
 
 go get -u github.com/joho/godotenv
 
-````
+```
 
 - bcrypt
 
 ```go get -u golang.org/x/crypto/bcrypt
 
-````
+```
 
 - JWT
 
