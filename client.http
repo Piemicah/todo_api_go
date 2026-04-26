@@ -4,11 +4,44 @@ GET http://localhost:8080
 GET http://localhost:8080/todos
 
 ###
+GET http://localhost:8080/todos/8
+
+###
 
 POST http://localhost:8080/todos
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJob2RhQGdtYWlsLmNvbSIsImV4cCI6MTc3NzI5NTk3MiwidXNlcl9pZCI6IjNlY2I2NGNiLTA0MzgtNDI5MC1hOTA5LTE4ZDEyNWRiZmFkOSJ9.Sm-d3X_1frVn2N5fVDiQlJXcyqt9vzcyS45_xw9nuY4
 
 {
-    "title":"Masters Degree",
-    "completed":true
+    "title":"Master Houdini"
 }
+
+###
+
+DELETE  http://localhost:8080/todos/10
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+    "email":"titi@gmail.com",
+    "password":"123456"
+}
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+    "email":"rhoda@gmail.com",
+    "password":"123456"
+}
+
+###
+
+GET http://localhost:8080/protected-test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z2VzMS42MkBnbWFpbC5jb20iLCJleHAiOjE3NzcyNzkxMjksInVzZXJfaWQiOiJhOTc3MWRjZS0wM2JlLTQxYmQtYmMzOS0zZDcyZmJiZWZmN2QifQ.5W5q10wIglMzZHZbqCXzGBcaelkxpKtJOYfdx23oAlw
