@@ -86,6 +86,53 @@ func GetAllTodos(pool *pgxpool.Pool,userID string) ([]models.Todo,error) {
 		
 }
 
+
+func AdminGetAllTodos(pool *pgxpool.Pool) ([]models.Todo,error) {
+	var ctx context.Context
+	var cancel context.CancelFunc
+	ctx,cancel = context.WithTimeout(context.Background(),5*time.Second)
+	defer cancel()
+
+	var query = `SELECT * FROM todos ORDER BY created_at DESC
+	`
+
+	
+	var rows, err = pool.Query(ctx,query)
+
+	if err != nil{
+		return nil, err
+	}
+	defer rows.Close()
+	
+	var todos []models.Todo = []models.Todo{}
+	
+	for rows.Next(){
+		var todo models.Todo
+		
+		err = rows.Scan(
+			&todo.ID,
+			&todo.Title,
+			&todo.Completed,
+			&todo.CreatedAt,
+			&todo.UpdatedAt,
+			&todo.UserID,
+		)
+
+		if err != nil{
+			return nil, err
+		}
+		todos = append(todos, todo)
+
+	}
+
+	if err = rows.Err(); err !=nil{
+		return nil,err
+	}
+
+	return todos,nil
+		
+}
+
 func GetTodoById(pool *pgxpool.Pool,id int,userID string) (*models.Todo,error) {
 	var ctx context.Context
 	var cancel context.CancelFunc

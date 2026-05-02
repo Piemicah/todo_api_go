@@ -3,6 +3,7 @@ GET http://localhost:8080
 ###
 GET http://localhost:8080/todos
 
+
 ###
 GET http://localhost:8080/todos/8
 
@@ -10,10 +11,10 @@ GET http://localhost:8080/todos/8
 
 POST http://localhost:8080/todos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJob2RhQGdtYWlsLmNvbSIsImV4cCI6MTc3NzI5NTk3MiwidXNlcl9pZCI6IjNlY2I2NGNiLTA0MzgtNDI5MC1hOTA5LTE4ZDEyNWRiZmFkOSJ9.Sm-d3X_1frVn2N5fVDiQlJXcyqt9vzcyS45_xw9nuY4
 
 {
-    "title":"Master Houdini"
+    "title":"Master 3DS Max",
+    "completed":true
 }
 
 ###
@@ -43,5 +44,29 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:8080/auth/refresh
+Content-Type: application/json
+
+###
+
 GET http://localhost:8080/protected-test
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im51Z2VzMS42MkBnbWFpbC5jb20iLCJleHAiOjE3NzcyNzkxMjksInVzZXJfaWQiOiJhOTc3MWRjZS0wM2JlLTQxYmQtYmMzOS0zZDcyZmJiZWZmN2QifQ.5W5q10wIglMzZHZbqCXzGBcaelkxpKtJOYfdx23oAlw
+
+###
+
+GET http://localhost:8080/admin/users
+
+
+###
+
+GET http://localhost:8080/admin/todos
+
+###
+
+POST http://localhost:8080/auth/logout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJob2RhQGdtYWlsLmNvbSIsImV4cCI6MTc3NzczMTMzMCwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjoiM2VjYjY0Y2ItMDQzOC00MjkwLWE5MDktMThkMTI1ZGJmYWQ5In0.iZxTFsWRaS8qM1l8R9HcRgtBwwSE7NYyhUx0aeS0Kp0
+
+{
+  "refresh_token": "1b314b4f928fd79327dc914b08a9f8dbc08099cf4f86363be3de951dd5d5719c0fc3e8cad3b1a3bb3e858b9e12a2b75cad017aa2fddf12f6848ff35c4f6eb21b",
+  "all_devices": true
+}

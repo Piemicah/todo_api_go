@@ -64,6 +64,20 @@ func GetAllTodosHandler(pool *pgxpool.Pool) gin.HandlerFunc {
 }
 }
 
+func AdminGetAllTodosHandler(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+	
+	
+
+	todos,err := repository.AdminGetAllTodos(pool)
+
+	if err != nil{
+		ctx.JSON(http.StatusInternalServerError,gin.H{"error":err.Error()})
+	}
+	ctx.JSON(http.StatusCreated,todos)
+}
+}
+
 func GetTodoByIdHandler(pool *pgxpool.Pool) gin.HandlerFunc {
 	return  func(ctx *gin.Context) {
 
